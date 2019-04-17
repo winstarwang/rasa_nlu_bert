@@ -239,7 +239,11 @@ class DataRouter(object):
         # type: (RasaNLUModelConfig) -> bool
         from rasa_nlu.classifiers.embedding_intent_classifier import \
             EmbeddingIntentClassifier
-        return EmbeddingIntentClassifier.name in model_config.component_names
+        from rasa_nlu.classifiers.bert_intent_classifier import \
+            BertIntentClassifier
+        ret = (EmbeddingIntentClassifier.name in model_config.component_names)| \
+                (BertIntentClassifier.name in model_config.component_names)
+        return ret
 
     def extract(self, data):
         return self.emulator.normalise_request_json(data)

@@ -18,10 +18,12 @@ from typing import Type
 from rasa_nlu.classifiers.keyword_intent_classifier import \
     KeywordIntentClassifier
 from rasa_nlu.classifiers.mitie_intent_classifier import MitieIntentClassifier
+from rasa_nlu.classifiers.bert_intent_classifier import BertIntentClassifier
 from rasa_nlu.classifiers.sklearn_intent_classifier import \
     SklearnIntentClassifier
 from rasa_nlu.classifiers.embedding_intent_classifier import \
     EmbeddingIntentClassifier
+from rasa_nlu.extractors.duckling_extractor import DucklingExtractor
 from rasa_nlu.extractors.duckling_http_extractor import DucklingHTTPExtractor
 from rasa_nlu.extractors.entity_synonyms import EntitySynonymMapper
 from rasa_nlu.extractors.mitie_entity_extractor import MitieEntityExtractor
@@ -31,6 +33,7 @@ from rasa_nlu.featurizers.mitie_featurizer import MitieFeaturizer
 from rasa_nlu.featurizers.ngram_featurizer import NGramFeaturizer
 from rasa_nlu.featurizers.regex_featurizer import RegexFeaturizer
 from rasa_nlu.featurizers.spacy_featurizer import SpacyFeaturizer
+from rasa_nlu.featurizers.bert_featurizer import BertFeaturizer
 from rasa_nlu.featurizers.count_vectors_featurizer import \
     CountVectorsFeaturizer
 from rasa_nlu.model import Metadata
@@ -38,6 +41,7 @@ from rasa_nlu.tokenizers.mitie_tokenizer import MitieTokenizer
 from rasa_nlu.tokenizers.spacy_tokenizer import SpacyTokenizer
 from rasa_nlu.tokenizers.jieba_tokenizer import JiebaTokenizer
 from rasa_nlu.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
+from rasa_nlu.tokenizers.bert_tokenizer import BertTokenizer
 from rasa_nlu.utils.mitie_utils import MitieNLP
 from rasa_nlu.utils.spacy_utils import SpacyNLP
 
@@ -53,10 +57,10 @@ component_classes = [
     CRFEntityExtractor, DucklingHTTPExtractor,
     EntitySynonymMapper,
     SpacyFeaturizer, MitieFeaturizer, NGramFeaturizer, RegexFeaturizer,
-    CountVectorsFeaturizer,
-    MitieTokenizer, SpacyTokenizer, WhitespaceTokenizer, JiebaTokenizer,
+    CountVectorsFeaturizer, BertFeaturizer,
+    MitieTokenizer, SpacyTokenizer, WhitespaceTokenizer, JiebaTokenizer, BertTokenizer,
     SklearnIntentClassifier, MitieIntentClassifier, KeywordIntentClassifier,
-    EmbeddingIntentClassifier
+    EmbeddingIntentClassifier, BertIntentClassifier
 ]
 
 # Mapping from a components name to its class to allow name based lookup.
